@@ -58,4 +58,11 @@ defmodule StackTest do
     {stack, item} = Stack.pop(stack)
     assert_equal(item, :foo)
   end
+
+  test "A stack is empty after popping all items" do
+    stack = Stack.new()
+    stack = Stack.push(stack, :foo)
+    {stack, _item} = Stack.pop(stack)
+    assert_equal(Stack.empty?(stack), true)
+  end
 end
