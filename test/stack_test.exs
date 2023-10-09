@@ -42,4 +42,10 @@ defmodule StackTest do
     stack = Stack.push(stack, :foo)
     assert_equal(Stack.empty?(stack), false)
   end
+
+  test "A pushed item can be popped" do
+    stack = Stack.new()
+    stack = Stack.push(stack, :foo)
+    assert_equal(Stack.pop(stack), :foo)
+  end
 end

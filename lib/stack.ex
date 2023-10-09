@@ -1,15 +1,19 @@
 defmodule Stack do
-  defstruct empty?: true
+  defstruct item: nil
 
   def new do
     %__MODULE__{}
   end
 
   def empty?(stack) do
-    stack.empty?
+    is_nil(stack.item)
   end
 
-  def push(stack, _value) do
-    %{stack | empty?: false}
+  def push(stack, item) do
+    %{stack | item: item}
+  end
+
+  def pop(stack) do
+    stack.item
   end
 end
