@@ -39,7 +39,7 @@ defmodule StackTest do
 
   test "A stack after pushing is not empty" do
     stack = Stack.new()
-    Stack.push(stack, :foo)
+    stack = Stack.push(stack, :foo)
     assert_equal(Stack.empty?(stack), false)
   end
 end

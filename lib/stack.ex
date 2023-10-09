@@ -1,11 +1,15 @@
 defmodule Stack do
+  defstruct empty?: true
+
   def new do
+    %__MODULE__{}
   end
 
-  def empty?(_stack) do
-    true
+  def empty?(stack) do
+    stack.empty?
   end
 
-  def push(_stack, _value) do
+  def push(stack, _value) do
+    %{stack | empty?: false}
   end
 end
