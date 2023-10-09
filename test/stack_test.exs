@@ -46,6 +46,16 @@ defmodule StackTest do
   test "A pushed item can be popped" do
     stack = Stack.new()
     stack = Stack.push(stack, :foo)
-    assert_equal(Stack.pop(stack), :foo)
+    {_stack, item} = Stack.pop(stack)
+    assert_equal(item, :foo)
+  end
+
+  test "Items are popped in LIFO order" do
+    stack = Stack.new()
+    stack = stack |> Stack.push(:foo) |> Stack.push(:bar)
+    {stack, item} = Stack.pop(stack)
+    assert_equal(item, :bar)
+    {stack, item} = Stack.pop(stack)
+    assert_equal(item, :foo)
   end
 end

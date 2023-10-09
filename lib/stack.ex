@@ -1,19 +1,20 @@
 defmodule Stack do
-  defstruct item: nil
+  defstruct items: []
 
   def new do
     %__MODULE__{}
   end
 
   def empty?(stack) do
-    is_nil(stack.item)
+    Enum.empty?(stack.items)
   end
 
   def push(stack, item) do
-    %{stack | item: item}
+    Map.update!(stack, :items, &[item | &1])
   end
 
   def pop(stack) do
-    stack.item
+    [item | items] = stack.items
+    {%{stack | items: items}, item}
   end
 end
