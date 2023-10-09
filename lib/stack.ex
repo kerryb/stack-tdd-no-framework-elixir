@@ -17,6 +17,6 @@ defmodule Stack do
 
   def pop(stack) do
     [item | items] = stack.items
-    {%{stack | items: items}, item}
+    {:ok, %{stack | items: items}, item}
   end
 end
