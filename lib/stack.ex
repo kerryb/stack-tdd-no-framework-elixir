@@ -13,6 +13,8 @@ defmodule Stack do
     Map.update!(stack, :items, &[item | &1])
   end
 
+  def pop(%{items: []}), do: {:error, :empty}
+
   def pop(stack) do
     [item | items] = stack.items
     {%{stack | items: items}, item}
